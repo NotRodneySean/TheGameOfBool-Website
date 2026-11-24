@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10151e">
+<meta name="description" content="Bool is a two-player connection game. Make your move. Find your path. Connect top to bottom.">
+<title>Bool — Find your path.</title>
+<style>
+:root{color-scheme:dark;--bg:#10151e;--ink:#f4f5f7;--muted:#abb5c6;--cyan:#68e4ef;--pink:#f58ac3;--line:#ffffff19}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body:before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(#68e4ef07 1px,transparent 1px),linear-gradient(90deg,#68e4ef07 1px,transparent 1px),radial-gradient(ellipse at 75% 20%,#31435540,transparent 60%);background-size:48px 48px,48px 48px,auto;pointer-events:none}a{color:inherit}button,a{-webkit-tap-highlight-color:transparent}:focus-visible{outline:3px solid var(--pink);outline-offset:5px}.wrap{max-width:1120px;margin:auto;padding:0 28px}.skip{position:absolute;top:-100px;left:20px;background:var(--cyan);color:var(--bg);padding:10px;z-index:2}.skip:focus{top:10px}header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:30px 0;border-bottom:1px solid var(--line)}.logo{font:700 30px/1 ui-monospace,"Courier New",monospace;letter-spacing:-2px;text-decoration:none}.logo span{color:var(--cyan)}.tag,.eyebrow{font:12px/1.5 ui-monospace,"Courier New",monospace;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted)}.tag{display:flex;align-items:center;gap:9px}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan)}.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;padding:92px 0 78px}.eyebrow{color:var(--cyan);margin:0 0 22px}h1{font-size:clamp(48px,7vw,84px);line-height:1.06;letter-spacing:-4px;margin:0 0 24px;font-weight:650}h1 span{color:var(--cyan)}.intro{color:var(--muted);max-width:455px;font-size:19px;margin-bottom:30px}.buttons{display:flex;flex-wrap:wrap;gap:12px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 20px;border-radius:6px;border:1px solid #ffffff30;font:600 14px/1.4 system-ui;text-decoration:none;background:transparent;color:var(--ink);cursor:pointer}.primary{background:var(--cyan);color:#0a2027;border-color:var(--cyan)}.button:hover{border-color:var(--cyan)}.primary:hover{background:#9deef5}.note{font-size:13px;color:var(--muted);margin-top:17px}.board{position:relative;border:1px solid var(--line);border-radius:18px;padding:22px;background:#111b27b3;box-shadow:0 25px 100px #0003;transform:rotate(3deg)}.board-top{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font:11px ui-monospace,monospace;letter-spacing:1.5px}.board svg{display:block;width:100%;height:auto;margin:18px auto 8px}.board-bottom{display:flex;gap:20px;justify-content:center;font:12px ui-monospace,monospace;color:var(--muted)}.player:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cyan);margin-right:7px}.player.two:before{background:var(--pink)}section{border-top:1px solid var(--line);padding:44px 0}h2{font-size:27px;letter-spacing:-.7px;margin:0 0 14px}h3{font-size:18px;margin:10px 0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:30px}.num{font:12px ui-monospace,monospace;color:var(--cyan)}.steps p,.about p{color:var(--muted);margin:0}.about{display:grid;grid-template-columns:1fr 1.3fr;gap:50px}.about p+p{margin-top:14px}.pill{display:inline-block;border:1px solid #68e4ef40;color:var(--cyan);padding:5px 10px;border-radius:99px;font:11px/1.5 ui-monospace,monospace;margin-top:7px}.invite{border:1px solid #68e4ef65;border-radius:10px;padding:24px;margin-top:30px;background:#102932}.invite[hidden]{display:none}.invite p{color:var(--muted);margin:8px 0 18px}.invite label{font-size:13px;display:block;margin-bottom:6px}.invite input{display:block;width:100%;background:#0c1921;color:var(--ink);border:1px solid #ffffff30;border-radius:5px;padding:12px;margin-bottom:12px;font:13px ui-monospace,monospace}.status{font-size:13px;min-height:1.5em;margin:8px 0 0!important}footer{display:flex;justify-content:space-between;gap:20px;padding:28px 0 35px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}footer a{text-underline-offset:4px}@media(max-width:720px){.wrap{padding:0 22px}.hero{grid-template-columns:1fr;padding:56px 0 48px;gap:38px}h1{letter-spacing:-2.8px}.intro{font-size:17px}.board{max-width:420px;width:95%;margin:auto;transform:rotate(1deg)}.steps{grid-template-columns:1fr;gap:25px}.about{grid-template-columns:1fr;gap:8px}.tag{font-size:10px;letter-spacing:1px}footer{flex-direction:column;gap:8px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header><a class="logo" href="./" aria-label="Bool home">b<span>oo</span>l</a><div class="tag"><span class="dot" aria-hidden="true"></span>Two-player connection game</div></header>
+<main id="main">
+<aside id="invitation" class="invite" aria-labelledby="invite-title" hidden>
+<h2 id="invite-title">You’ve been invited to a game.</h2>
+<p>This is Bool’s landing page, not the playable game. Keep this invitation to open with Bool when app links are available. You have not joined the room.</p>
+<label for="invite-url">Your invitation link</label><input id="invite-url" type="text" readonly spellcheck="false">
+<button class="button primary" id="copy-invite" type="button">Copy invitation</button><p class="status" id="copy-status" role="status"></p>
+</aside>
+<div class="hero">
+<div><p class="eyebrow">A little logic. A different path.</p><h1>Make your move.<br>Find your <span>path.</span></h1><p class="intro">A two-player connection game where every choice changes the board. Connect top to bottom before your opponent does.</p><div class="buttons"><a class="button primary" href="#how-to-play">How to play</a><a class="button" href="#android">Coming to Android</a></div><p class="note">Two players. One connected path.</p></div>
+<div class="board" aria-hidden="true"><div class="board-top"><span>BOOL / CONNECTION STUDY</span><span>01 — 16</span></div>
+<svg viewBox="0 0 360 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g stroke="#65758a" stroke-opacity=".45" stroke-width="1.3"><path d="M180 26 60 98M180 26 140 98M180 26 220 98M180 26 300 98M60 98 30 174M60 98 90 174M60 98 150 174M140 98 30 174M140 98 210 174M140 98 270 174M220 98 90 174M220 98 210 174M220 98 330 174M300 98 150 174M300 98 270 174M300 98 330 174M30 174 60 250M90 174 140 250M150 174 60 250M150 174 220 250M210 174 140 250M210 174 300 250M270 174 220 250M330 174 300 250M60 250 180 324M140 250 180 324M220 250 180 324M300 250 180 324"/></g>
+<path d="M180 26 140 98 210 174 140 250 180 324" stroke="#68e4ef" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="#192635" stroke="#8190a5" stroke-width="2"><circle cx="60" cy="98" r="8"/><circle cx="220" cy="98" r="8"/><circle cx="30" cy="174" r="8"/><circle cx="90" cy="174" r="8"/><circle cx="270" cy="174" r="8"/><circle cx="330" cy="174" r="8"/><circle cx="60" cy="250" r="8"/></g>
+<g fill="#f58ac3" stroke="#f58ac3" stroke-width="2"><circle cx="300" cy="98" r="8"/><circle cx="150" cy="174" r="8"/><circle cx="220" cy="250" r="8"/><circle cx="300" cy="250" r="8"/></g>
+<g fill="#68e4ef" stroke="#b5f5fa" stroke-width="2"><circle cx="180" cy="26" r="9"/><circle cx="140" cy="98" r="9"/><circle cx="210" cy="174" r="9"/><circle cx="140" cy="250" r="9"/><circle cx="180" cy="324" r="9"/></g></svg>
+<div class="board-bottom"><span class="player">Player 1</span><span class="player two">Player 2</span></div></div>
+</div>
+<section id="how-to-play"><p class="eyebrow">The idea is simple</p><h2>Claim nodes. Make connections.</h2><div class="steps"><div><span class="num">01 / CHOOSE</span><h3>Take your turn.</h3><p>Choose an unclaimed node and make it yours.</p></div><div><span class="num">02 / CONNECT</span><h3>Build your route.</h3><p>Connect your nodes along the board’s lines while your opponent builds a path of their own.</p></div><div><span class="num">03 / WIN</span><h3>Reach the other side.</h3><p>Be the first to complete your connection from the top of the board to the bottom.</p></div></div></section>
+<section class="about" id="android"><div><p class="eyebrow">The next connection</p><h2>Bool is coming to Android.</h2><span class="pill">IN DEVELOPMENT</span></div><div><p>The Android version is in the works. A Google Play download link will appear here when it’s available.</p><p>Have a room invitation? Hold on to the original link. Online invitations will be supported once the app and its link handling are ready.</p></div></section>
+</main><footer><span>Bool · Find your path.</span><a href="#how-to-play">Back to the basics</a></footer>
+</div>
+<script>
+(() => {
+  const room = new URLSearchParams(window.location.search).get('room');
+  if (!room || !room.trim()) return;
+  const panel = document.getElementById('invitation');
+  const field = document.getElementById('invite-url');
+  const status = document.getElementById('copy-status');
+  field.value = window.location.href;
+  panel.hidden = false;
+  document.getElementById('copy-invite').addEventListener('click', async () => {
+    try {
+      if (!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(field.value);
+      status.textContent = 'Invitation copied.';
+    } catch (_) {
+      field.focus(); field.select();
+      status.textContent = 'Select and copy the invitation from the field above.';
+    }
+  });
+})();
+</script>
+</body>
+</html>
